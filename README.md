@@ -6,15 +6,16 @@ This is a short condensed setup of WSL on Windows 10. A good portion comes from 
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-## Enable Virtual Machine Features:
+## Enable Virtual Machine Features (and Restart):
 ```
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
 
 ```
 
 ## Install WSL1 from the store and then click install:
 Note: Currently you can only install WSL1 and then upgrade to WSL2 unless you are a Windows Insider.
 
+Link to click (will open Microsoft Store):
 https://aka.ms/wslstore
 
 
@@ -43,10 +44,8 @@ wsl --set-default-version 2
 ## Download and Install Ubuntu Fonts
 This can be done by clicking on the fonts
 
-https://design.ubuntu.com/font/
-
 ## Change Colors on Terminal:
-- Download ttf files form here: https://github.com/kuddman/ubuntu-bash-layout-for-windows
+- Download ttf files from here: https://design.ubuntu.com/font/
 - Double click in each ttf and click install
 - Right click on top bar of ubuntu window, go to properties, and click font and select: Ubuntu Mono
 - Go back to the color tab and set the 12 colors to:
@@ -72,6 +71,9 @@ Slot 16: Red: 238, Green: 238, Blue: 238
 
 Close out window and reopen, and setup will be complete.
 
+## Enable Copy/Paste:
+Right click on top bar of ubuntu window, go to defaults, in the Options tab check 'Use Ctrl+Shift+C/V as Copy/Paste'
+
 ## Set up links to Documents and Downloads:
 ```
 cd ~/
@@ -80,26 +82,29 @@ ln -s "/mnt/c/Documents and Settings/<windows user>/Downloads" Downloads
 ```
 
 ## To Fix Git Hub Issues:
+```
 sudo umount /mnt/c
 sudo mount -t drvfs C: /mnt/c -o metadata
-Edit to add: /etc/wsl.conf:
+```
+
+## Edit to add: /etc/wsl.conf (may need to use sudo):
 ```
 [automount]
 options = "metadata"
+```
+
+## Enable scrolling in VIM (may need to use sudo):
+Edit /etc/vim/vimrc.local:
+```
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 ```
 
 ## Remove Annoying Bell
 Edit: ~/.bashrc:
 ```
 bind 'set bell-style none'
-```
-
-## Enable scrolling in VIM
-Edit /etc/vim/vimrc.local:
-```
-set mouse=a
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
 ```
 
 # Enable VS Code
