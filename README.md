@@ -47,7 +47,7 @@ This can be done by clicking on the fonts
 ## Change Colors on Terminal:
 - Download ttf files from here: https://design.ubuntu.com/font/
 - Double click in each ttf and click install
-- Right click on top bar of ubuntu window, go to properties, and click font and select: Ubuntu Mono
+- Right click on top bar of ubuntu window, go to defaults, and click font and select: Ubuntu Mono
 - Go back to the color tab and set the 12 colors to:
 ```
 Slot 1: Red: 48, Green: 10, Blue: 36
@@ -111,3 +111,4 @@ bind 'set bell-style none'
 For VSCode, download from: https://code.visualstudio.com/
 
 After it has downloaded, go into the ubuntu window and type 'code .' and a remote server connection will be created. Now you can create linux files / binaries within vscode.
+
